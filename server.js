@@ -11,7 +11,10 @@ var methodOverride = require('method-override');
 
 // DATABASE URI
 //=======================================================================
-mongoose.connect('mongodb://dave:yo@ds113455.mlab.com:13455/mean-stack'); 
+mongoose.connect('mongodb://dave:yo@ds113455.mlab.com:13455/mean-stack', {
+    useMongoClient: true,
+    /* other options */
+  });
 
 // CONFIGURATION
 //=======================================================================

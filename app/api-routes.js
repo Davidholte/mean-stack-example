@@ -31,6 +31,7 @@ module.exports = function (app) {
 
         // create an item, information comes from AJAX request from Angular
         Item.create({
+            name: req.body.name,
             text: req.body.text,
             done: false
         }, function (err, item) {

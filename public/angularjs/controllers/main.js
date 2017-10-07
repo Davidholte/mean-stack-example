@@ -1,6 +1,6 @@
 angular.module('itemController', [])
 
-	// inject the Item service factory into our controller
+	// inject the Item service factory into controller
 	.controller('mainController', ['$scope','$http','Items', function($scope, $http, Items) {
 		$scope.formData = {};
 		$scope.loading = true;
@@ -18,19 +18,19 @@ angular.module('itemController', [])
 		// when submitting the add form, send the text to the node API
 		$scope.createItem = function() {
 
-			// validate the formData to make sure that something is there
+			// validating the formData
 			// if form is empty, nothing will happen
-			if ($scope.formData.text != undefined) {
+			if ($scope.formData.text != undefined && $scope.formData.name != undefined) {
 				$scope.loading = true;
 
-				// call the create function from our service (returns a promise object)
+				// create function from service (returns a promise object)
 				Items.create($scope.formData)
 
-					// if successful creation, call our get function to get all the new items
+					// if successful creation, call get function to get all the new items
 					.success(function(data) {
 						$scope.loading = false;
-						$scope.formData = {}; // clear the form so our user is ready to enter another
-						$scope.items = data; // assign our new list of items
+						$scope.formData = {}; // clear the form so user is ready to enter another
+						$scope.items = data; // assign new list of items
 					});
 			}
 		};
@@ -41,10 +41,10 @@ angular.module('itemController', [])
 			$scope.loading = true;
 
 			Items.delete(id)
-				// if successful creation, call our get function to get all the new items
+				// if successful creation, call get function to get all the new items
 				.success(function(data) {
 					$scope.loading = false;
-					$scope.items = data; // assign our new list of items
+					$scope.items = data; // assign new list of items
 				});
 		};
 	}]);

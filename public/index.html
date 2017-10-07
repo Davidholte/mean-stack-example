@@ -29,6 +29,7 @@
 		<div class="jumbotron text-center">
             <h1>Dave's API frontend</h1>
             <h2>Current amount of Documents: <span class="label label-info">{{ items.length }}</span></h2>
+            <p id="date"></p>
 		</div>
 
 		<!-- ITEM LIST -->
@@ -39,7 +40,9 @@
 				<!-- LOOP OVER THE ITEMS IN $scope.items -->
 				<div class="checkbox" ng-repeat="item in items">
 					<label>
-						<input type="checkbox" ng-click="deleteItem(item._id)"> {{ item.text }}
+                        <input type="checkbox" ng-click="deleteItem(item._id)"><b>Text: </b>{{ item.text }}
+                        <p><b>ID: </b>{{ item._id }}</p>
+                        <br>
 					</label>
 				</div>
 
@@ -70,6 +73,9 @@
                 <h5>Check the box to delete the document.</h5>
 		</div>
 
-	</div>
+    </div>
+    <script>
+            document.getElementById("date").innerHTML = Date();
+    </script>
 </body>
 </html>

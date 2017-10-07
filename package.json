@@ -1,0 +1,14 @@
+{
+  "name": "mean-stack",
+  "version": "0.0.0",
+  "description": "An example of the MEAN stack",
+  "main": "server.js",
+  "author": "Dave",
+  "dependencies": {
+    "body-parser": "~1.5.2",
+    "express": "~4.7.2",
+    "method-override": "~2.1.2",
+    "mongoose": "^4.7.3",
+    "morgan": "~1.2.2"
+  }
+}

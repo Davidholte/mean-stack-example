@@ -1,0 +1,19 @@
+html { 
+    overflow-y:scroll; 
+}
+
+body { 
+    padding-top:50px; 
+}
+
+#item-list { 
+    margin-bottom:30px; 
+
+}
+#item-form { 
+    margin-bottom:50px; 
+}
+
+h5 {
+    text-align:center;
+}

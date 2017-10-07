@@ -1,0 +1,75 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="daveMean">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+	<title>Node/Angular Item App</title>
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+	<!-- Scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
+	<script src="angularjs/controllers/main.js"></script> <!-- load controller -->
+	<script src="angularjs/services/items.js"></script> <!-- load item service -->
+	<script src="angularjs/core.js"></script> <!-- load main application -->
+
+</head>
+<!-- SET THE CONTROLLER -->
+<body ng-controller="mainController">
+	<div class="container">
+
+		<!-- HEADER AND ITEM COUNT -->
+		<div class="jumbotron text-center">
+            <h1>Dave's API frontend</h1>
+            <h2>Current amount of Documents: <span class="label label-info">{{ items.length }}</span></h2>
+		</div>
+
+		<!-- ITEM LIST -->
+		<div id="item-list" class="row">
+
+            <div class="col-sm-4 col-sm-offset-4">
+
+				<!-- LOOP OVER THE ITEMS IN $scope.items -->
+				<div class="checkbox" ng-repeat="item in items">
+					<label>
+						<input type="checkbox" ng-click="deleteItem(item._id)"> {{ item.text }}
+					</label>
+				</div>
+
+				<p class="text-center" ng-show="loading">
+					<span class="fa fa-spinner fa-spin fa-3x"></span>
+				</p>
+			</div>
+		</div>
+
+		<!-- FORM TO CREATE ITEMS -->
+		<div id="item-form" class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+				<form>
+					<div class="form-group">
+
+						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+						<input type="text" class="form-control input-lg text-center" placeholder="Write some stuff.." ng-model="formData.text">
+                    </div>
+
+					<!-- createItem() WILL CREATE NEW ITEMS -->
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="createItem()">Add</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="text-center text-muted">
+                <h5>Press the Add button create item in the MongoDB Collection.</h5>
+                <h5>Check the box to delete the document.</h5>
+		</div>
+
+	</div>
+</body>
+</html>
